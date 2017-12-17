@@ -11,7 +11,8 @@ var Word = function() {
   
   this.create = function() {
      
-        var wordList=  ['Soccer','McLaren','Scarface','Constructor','Passat','Halloween','Christmass','Acura','Audi','BMW','Chevrolet','Cadillac','Chrysler','bentley','bugatti','Axios','Handlebars','Star Wars','nissan','lexus','kia','hyundai','fiat','peugeot','jaguar','mitsubishi','infiniti','mercedes','ferrari','lamborghini','maserati','tesla','ford','Opel','Porsche','Toyota','Holiday','Javascript','Database'];
+        var wordList=  ['Soccer','McLaren','Scarface','Constructor','Vacation','Halloween','Christmas','Acura','Wonderland','HTML','Chevrolet','Cadillac','Chrysler','bentley','bugatti','Axios','Handlebars','Star Wars','Santa Claus','Lexus','Jingle Bells','Hangman','Laptop','California','Jaguar','University','Infiniti','mercedes','ferrari','lamborghini','maserati','tesla','ford','Opel','Porsche','Toyota','Holiday','Javascript','Database'];
+        //var wordList = ['Star Wars'];
         this.wordToGuess = wordList[Math.floor(Math.random() * wordList.length)];
         this.letters =  this.wordToGuess.split("");
         this.length = this.letters.length;
