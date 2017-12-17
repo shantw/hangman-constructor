@@ -1,21 +1,28 @@
 // requiring our word module exported from word.js
 
 var Word = require("./Word.js");
+var Letter = require("./Letter.js");
+var inquirer = require("inquirer");
 
 var hangmanWord = new Word();
 
+
 hangmanWord.create();
-
 console.log(hangmanWord);
+var hangLetter = new Letter(hangmanWord.letters);
+hangLetter.init();
 
-var match = false;
-var guessCount = hangman.guessCount;
+
+var wordMatch = false;
+var guessCount = 12;
+
+hangLetter.display(-1);
 
 // recursive function which will allow the user to enter their guessed letter and then will display the outcome
 var guessWord = function() {
   
-  if (match && guessCount > 0 ) {
-    console.log("---------");
+  if (!wordMatch && guessCount > 0 ) {
+    
     inquirer.prompt([
        {
         name: "userGuess",
@@ -29,7 +36,19 @@ var guessWord = function() {
       }
     ]).then(function(answers) {
       // runs the constructor check Letter
-      var checkletter = new checkLetter(answers.name);
+      //console.log(answers.userGuess);
+      hangLetter.updateWord(answers.userGuess);
+      //console.log(!hangLetter.match);
+      console.log(hangLetter.match);
+      if (!hangLetter.match){
+         //wordMatch 
+         //hangLetter.match = false;
+         hangmanWord.updateGuessCount;
+         guessCount--;
+         //console.log(hangmanWord.guessCount);
+      }
+
+      hangLetter.display(guessCount);
 
       guessWord();
     });
